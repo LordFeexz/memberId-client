@@ -17,3 +17,17 @@ export const login = (payload) => async (dispatch) => {
     return err;
   }
 };
+
+export const register = (payload) => async (dispatch) => {
+  try {
+    const { data } = await axios({
+      method: "post",
+      url: `${url}/auth/register`,
+      data: payload,
+    });
+
+    return data;
+  } catch (err) {
+    return err;
+  }
+};
