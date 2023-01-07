@@ -43,6 +43,18 @@ export default function Filter() {
       .catch((err) => console.log(err));
   };
 
+  const reset = (e) => {
+    e.preventDefault();
+    setParams({
+      ...params,
+      type: "",
+      name: "",
+      minPoin: null,
+      maxPoin: null,
+      pagination: 1,
+    });
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -109,6 +121,9 @@ export default function Filter() {
           Submit
         </Button>
       </Form>
+      <Button onClick={reset} variant="primary" type="submit">
+        Reset
+      </Button>
     </>
   );
 }
