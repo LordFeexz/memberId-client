@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3001";
+const url = "http://localhost:3001/auth";
 
 export const login = (payload) => async (dispatch) => {
   try {
@@ -8,7 +8,7 @@ export const login = (payload) => async (dispatch) => {
 
     const { data } = await axios({
       method: "post",
-      url: `${url}/auth/login`,
+      url: `${url}/login`,
       data: payload,
     });
 
@@ -22,7 +22,7 @@ export const register = (payload) => async (dispatch) => {
   try {
     const { data } = await axios({
       method: "post",
-      url: `${url}/auth/register`,
+      url: `${url}/register`,
       data: payload,
     });
 
