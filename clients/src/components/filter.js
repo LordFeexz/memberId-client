@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchAward } from "../function/award";
+import { swalError } from "../helpers/swal";
 import Loading from "./loading";
 
 export default function Filter() {
@@ -40,7 +41,7 @@ export default function Filter() {
         });
       })
       .then(() => setLoading(false))
-      .catch((err) => console.log(err));
+      .catch((err) => swalError(err));
   };
 
   const reset = (e) => {
@@ -53,6 +54,10 @@ export default function Filter() {
       maxPoin: null,
       pagination: 1,
     });
+  };
+
+  const logout = () => {
+    localStorage.clear();
   };
 
   if (loading) {
@@ -121,8 +126,13 @@ export default function Filter() {
           Submit
         </Button>
       </Form>
+      <br />
       <Button onClick={reset} variant="primary" type="submit">
         Reset
+      </Button>
+      <br />
+      <Button onClick={logout} variant="primary" type="submit">
+        LogOut
       </Button>
     </>
   );

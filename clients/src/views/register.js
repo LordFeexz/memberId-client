@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/loading";
 import { register } from "../function/user";
+import { swalError } from "../helpers/swal";
 
 export default function Register() {
   const [input, setInput] = useState({
@@ -29,7 +30,7 @@ export default function Register() {
     setLoading(true);
     dispatch(register(input))
       .then(() => navigate("/login"))
-      .catch((err) => console.log(err))
+      .catch((err) => swalError(err))
       .finally(() => setLoading(false));
   };
 

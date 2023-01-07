@@ -6,13 +6,6 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-    loader: () => {
-      const access_token = localStorage.getItem("access_token");
-      if (access_token) {
-        return redirect("/");
-      }
-      return null;
-    },
   },
   {
     path: "/register",
@@ -21,12 +14,5 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    loader: () => {
-      const access_token = localStorage.getItem("access_token");
-      if (!access_token) {
-        return redirect("/login");
-      }
-      return null;
-    },
   },
 ]);

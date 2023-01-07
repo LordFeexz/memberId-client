@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/loading";
 import { login } from "../function/user";
+import { swalError } from "../helpers/swal";
 
 export default function Login() {
   const [input, setInput] = useState({
@@ -30,7 +31,7 @@ export default function Login() {
         localStorage.setItem("access_token", data.access_token);
       })
       .then(() => navigate("/"))
-      .catch((err) => console.log(err))
+      .catch((err) => swalError(err))
       .finally(() => setLoading(false));
   };
 
