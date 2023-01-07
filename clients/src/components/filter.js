@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { fetchAward } from "../function/award";
 import { swalError } from "../helpers/swal";
 import Loading from "./loading";
@@ -15,6 +16,8 @@ export default function Filter() {
   });
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -58,6 +61,7 @@ export default function Filter() {
 
   const logout = () => {
     localStorage.clear();
+    navigate("/login");
   };
 
   if (loading) {
