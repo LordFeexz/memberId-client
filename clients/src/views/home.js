@@ -14,9 +14,11 @@ export default function Home() {
       <header>
         <h1>Awards</h1>
       </header>
-      {awards.map((award) => {
-        return <CardAwards award={award} key={award.id} />;
-      })}
+      {awards.length > 0 ? (
+        awards.map((award) => <CardAwards award={award} key={award.id} />)
+      ) : (
+        <h1>No Data</h1>
+      )}
     </>
   );
 }

@@ -11,7 +11,7 @@ export const fetchAward = () => async (dispatch) => {
         access_token: localStorage.access_token,
       },
     });
-    dispatch(fetchAwardSuccess(data.data));
+    dispatch(fetchAwardSuccess(data));
     return data;
   } catch (err) {
     return err;
